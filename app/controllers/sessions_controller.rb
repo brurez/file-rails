@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorized, except: %i[ index destroy ]
+
   def index
     format.json { render json: { current_user: current_user }  }
   end

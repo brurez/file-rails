@@ -1,13 +1,29 @@
-<h1>Login</h1>
+<h1 class="is-size-3 has-text-weight-bold">Login</h1>
 
 <div>
   <%= alert %>
 </div>
 
-<%= form_tag '/login' do %>
-  <%= label_tag :username%>
-  <%= text_field_tag :username %>
-  <%= label_tag :password%>
-  <%= password_field_tag :password%>
-  <%= submit_tag "Login"%>
-<%end%>
+<div class="mt-4">
+  <%= form_tag '/login' do %>
+    <div class="field">
+      <div class="label">
+        <%= label_tag :username %>
+      </div>
+      <div class="control">
+        <%= text_field_tag :username, nil, class: "input" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label">
+        <%= label_tag :password %>
+      </div>
+      <div class="control">
+        <%= password_field_tag :password, nil, class: "input" %>
+      </div>
+    </div>
+    <div class="field">
+      <%= submit_tag "Login", class: "button is-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstaRails</title>
+    <title>Rails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_pack_tag "application" %>
   </head>
 
   <body>
-    <div id="root"></div>
-    <%= yield %>
+    <div class="container">
+    <%= render 'navbar' %>
+    <div class="pt-4">
+      <%= yield %>
+    </div>
+    </div>
   </body>
 </html>

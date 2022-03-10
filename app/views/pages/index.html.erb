@@ -1,11 +1,18 @@
 <%= javascript_pack_tag "app" %>
+<div class="has-text-centered">
+<h1 class="is-size-1 has-text-weight-bold">Welcome</h1>
+</div>
 
-<h1>Welcome</h1>
+<% if alert %>
+  <article class="message is-danger">
+    <div class="message-body">
+      <%= alert %>
+    </div>
+  </article>
+<% end %>
+
+<div id="root"></div>
 
 <% if logged_in? %>
   <h2>You are logged in, <%= current_user.username %></h2>
 <% end %>
-
-<%= button_to "Login", "/login", method: :get %>
-<%= button_to "Logout", "/logout", method: :get %>
-<%= button_to "Signup", "/users/new", method: :get %>

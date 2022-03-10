@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   private
 
   def authorized
-    redirect_to '/' unless logged_in?
+    redirect_to '/', alert: "Not authorized" unless logged_in?
   end
 end
