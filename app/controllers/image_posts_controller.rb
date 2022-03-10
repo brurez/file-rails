@@ -3,7 +3,7 @@ class ImagePostsController < ApplicationController
 
   # GET /image_posts or /image_posts.json
   def index
-    @image_posts = ImagePost.all
+    @image_posts = ImagePost.where(user: current_user)
   end
 
   # GET /image_posts/1 or /image_posts/1.json
@@ -22,6 +22,7 @@ class ImagePostsController < ApplicationController
   # POST /image_posts or /image_posts.json
   def create
     @image_post = ImagePost.new(image_post_params)
+    @image_post.user = current_user
 
     respond_to do |format|
       if @image_post.save
@@ -60,7 +61,7 @@ class ImagePostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image_post
-      @image_post = ImagePost.find(params[:id])
+      @image_post = ImagePost.find_by(id: params[:id], user: current_user )
     end
 
     # Only allow a list of trusted parameters through.

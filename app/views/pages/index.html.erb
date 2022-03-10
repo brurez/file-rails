@@ -1,1 +1,11 @@
 <%= javascript_pack_tag "app" %>
+
+<h1>Welcome</h1>
+
+<% if logged_in? %>
+  <h2>You are logged in, <%= current_user.username %></h2>
+<% end %>
+
+<%= button_to "Login", "/login", method: :get %>
+<%= button_to "Logout", "/logout", method: :get %>
+<%= button_to "Signup", "/users/new", method: :get %>
