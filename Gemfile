@@ -12,6 +12,8 @@ gem "sprockets-rails"
 # Use database for Active Record
 gem "pg"
 
+gem "webpacker"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
