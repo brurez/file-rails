@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
+    result = Auth::authenticate(username: params[:username], password: params[:password])
 
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+    if result[:success] == true
+      session[:user_id] = result[:user].id
       redirect_to "/"
     else
       redirect_to "/login", alert: "Invalid credentials"
